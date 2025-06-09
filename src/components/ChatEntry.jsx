@@ -18,3 +18,11 @@ ChatEntry.propTypes = {
 };
 
 export default ChatEntry;
+
+  // {
+  //   "id": 1,
+  //   "sender":"Vladimir",
+  //   "body":"why are you arguing with me",
+  //   "timeStamp":"2018-05-29T22:49:06+00:00",
+  //   "liked": false
+  // },

@@ -7,6 +7,10 @@ button {
 	cursor: pointer;
 	outline: inherit;
 }
+/*Text color styles*/
+.d-text {
+  color: black;
+} 
 
 .chat-entry {
   margin: 1rem;

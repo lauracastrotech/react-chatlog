@@ -29,6 +29,6 @@ const ChatLog = ({entries}) => {
 };
 
 ChatLog.propTypes = {
-  entries: PropTypes.instanceOf(array)
+  entries: PropTypes.arrayOf(PropTypes.object)
 };
 export default ChatLog;

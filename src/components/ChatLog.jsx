@@ -1,13 +1,13 @@
 import ChatEntry from './ChatEntry';
 import './ChatLog.css';
-import PropTypes, { array } from 'prop-types';
+import PropTypes from 'prop-types';
 
 const ChatLog = ({entries}) => {
   const messages = [...entries];
 
   const chatEntries = messages.map( (message) => {
     return (
-      <li key={message.id} className='chat-log'>
+      <li key={message.id}>
         <ChatEntry
           id={message.id}
           sender={message.sender}
@@ -21,7 +21,7 @@ const ChatLog = ({entries}) => {
 
   return (
     <section className='chat-log'>
-      <ul>
+      <ul className='messages'>
         {chatEntries}
       </ul>
     </section>

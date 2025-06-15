@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import './HeaderTitle.css';
 
 const HeaderTitle = ({participantNames}) => {
   const participantsArray = Array.from(participantNames);

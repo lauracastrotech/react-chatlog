@@ -5,7 +5,6 @@ import TimeStamp from './TimeStamp';
 const ChatEntry = ({id, sender, body, timeStamp, liked, updateLikes}) => {
   const likeButton = liked ? '❤️': '🤍';
   const entryLocation = sender !== 'Vladimir' ? 'chat-entry remote' : 'chat-entry local';
-
   const handleLikeBtn = () => {
     updateLikes(id);
   }

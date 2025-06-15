@@ -7,6 +7,7 @@ import data from './data/messages.json';
 const App = () => {
   const [messages, setMessages] = useState(data);
   const [count, setCount] = useState(0);
+  
   useEffect(() => {
     const countLikes = () => {
       const likes = messages.reduce((totalLikes, message) => {
@@ -25,26 +26,15 @@ const App = () => {
   
   const updateLikes = (messageId) => {
     let copyMessages = [...messages];
+
     for(const message of copyMessages){
       if(message.id === messageId){
         message.liked = !message.liked;
       }
     }
-    console.log('first load...');
-    // update the count
+
     setMessages(copyMessages);
   };
-
-  // const countLikes = () => {
-  //   const likes = messages.reduce((totalLikes, message) => {
-  //     if(message.liked){
-  //       return totalLikes + 1;
-  //     }
-  //     return totalLikes;
-  //   }, 0);
-
-  //   setCount(likes);
-  // };
 
   return (
     <div id="App">

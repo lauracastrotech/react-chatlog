@@ -2,7 +2,7 @@ import ChatEntry from './ChatEntry';
 import './ChatLog.css';
 import PropTypes from 'prop-types';
 
-const ChatLog = ({entries}) => {
+const ChatLog = ({entries, updateEntries}) => {
   const messages = [...entries];
 
   const chatEntries = messages.map( (message) => {
@@ -14,6 +14,7 @@ const ChatLog = ({entries}) => {
           body={message.body}
           timeStamp={message.timeStamp}
           liked={message.liked}
+          updateLikes={updateEntries}
         />
       </li>
     );
@@ -29,6 +30,7 @@ const ChatLog = ({entries}) => {
 };
 
 ChatLog.propTypes = {
-  entries: PropTypes.arrayOf(PropTypes.object)
+  entries: PropTypes.arrayOf(PropTypes.object),
+  updateEntries: PropTypes.func.isRequired
 };
 export default ChatLog;

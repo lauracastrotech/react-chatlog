@@ -1,5 +1,7 @@
 .like-count {
-    background-color: lightcyan;
+    background-color: #dffffe;
     border-bottom: 5px solid #222;
+    color: #222;
+    font-weight: bold;
 }
 

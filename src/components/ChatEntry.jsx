@@ -4,13 +4,14 @@ import TimeStamp from './TimeStamp';
 
 const ChatEntry = ({id, sender, body, timeStamp, liked, updateLikes}) => {
   const likeButton = liked ? '❤️': '🤍';
+  const entryLocation = sender !== 'Vladimir' ? 'chat-entry remote' : 'chat-entry local';
 
   const handleLikeBtn = () => {
     updateLikes(id);
   }
 
   return (
-    <div className="chat-entry local">
+    <div className={entryLocation}>
       <h2 className="entry-name d-text">{sender}</h2>
       <section className="entry-bubble">
         <p className="d-text">{body}</p>

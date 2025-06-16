@@ -17,20 +17,19 @@ const App = () => {
       setParticipants([...new Set(participants)]);
     };
 
-    // return () => {
     countParticipants();
-    // };
   }, [messages]);
 
 
   const updateLikes = (messageId) => {
-    const updateMessages = messages.map( message => {
-      if(message.id === messageId){
-        message.liked = !message.liked;
-      }
-      return message;
-    });
-    setMessages(updateMessages);
+    setMessages(updateMessages =>
+      updateMessages.map(message => {
+        if (message.id === messageId) {
+          return { ...message, liked: !message.liked };
+        }
+        return message;
+      })
+    );
   };
 
   const countLikes = () => {
@@ -40,7 +39,6 @@ const App = () => {
       }
       return totalLikes;
     }, 0);
-    console.log(messages[0]);
     return likes;
   };
 

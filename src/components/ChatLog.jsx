@@ -3,9 +3,7 @@ import './ChatLog.css';
 import PropTypes from 'prop-types';
 
 const ChatLog = ({entries, updateEntries}) => {
-  const messages = [...entries];
-
-  const chatEntries = messages.map( (message) => {
+  const chatEntries = entries.map( (message) => {
     return (
       <li key={message.id}>
         <ChatEntry

@@ -7,7 +7,7 @@ const ChatEntry = ({id, sender, body, timeStamp, liked, updateLikes}) => {
   const entryLocation = sender !== 'Vladimir' ? 'chat-entry remote' : 'chat-entry local';
   const handleLikeBtn = () => {
     updateLikes(id);
-  }
+  };
 
   return (
     <div className={entryLocation}>
@@ -29,7 +29,6 @@ ChatEntry.propTypes = {
   liked: PropTypes.bool,
   updateLikes: PropTypes.func.isRequired
 };
-
 
 export default ChatEntry;
 

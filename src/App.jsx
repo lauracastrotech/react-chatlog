@@ -7,24 +7,7 @@ import data from './data/messages.json';
 
 const App = () => {
   const [messages, setMessages] = useState(data);
-  const [count, setCount] = useState(0);
   const [participants, setParticipants] = useState([]);
-
-  useEffect(() => {
-    const countLikes = () => {
-      const likes = messages.reduce((totalLikes, message) => {
-        if(message.liked){
-          return totalLikes + 1;
-        }
-        return totalLikes;
-      }, 0);
-
-      setCount(likes);
-    };
-    return () => {
-      countLikes();
-    }
-  }, [messages]);
 
   useEffect(() => {
     const countParticipants = () => {
@@ -34,28 +17,38 @@ const App = () => {
       setParticipants([...new Set(participants)]);
     };
 
-    return () => {
-      countParticipants();
-    }
+    // return () => {
+    countParticipants();
+    // };
   }, [messages]);
 
 
   const updateLikes = (messageId) => {
-    let copyMessages = [...messages];
-
-    for(const message of copyMessages){
+    const updateMessages = messages.map( message => {
       if(message.id === messageId){
         message.liked = !message.liked;
       }
-    }
-    setMessages(copyMessages);
+      return message;
+    });
+    setMessages(updateMessages);
+  };
+
+  const countLikes = () => {
+    const likes = messages.reduce((totalLikes, message) => {
+      if(message.liked){
+        return totalLikes + 1;
+      }
+      return totalLikes;
+    }, 0);
+    console.log(messages[0]);
+    return likes;
   };
 
   return (
     <div id="App">
       <header>
         <HeaderTitle participantNames={participants}/>
-        <LikeCount likesCount={count} updateLikesCount={setCount}/>
+        <LikeCount likesCount={countLikes()} />
       </header>
       <main>
         <ChatLog entries={messages} updateEntries={updateLikes}/>
